@@ -1,0 +1,21 @@
+.Home-Card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.sort-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.sort-container select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+

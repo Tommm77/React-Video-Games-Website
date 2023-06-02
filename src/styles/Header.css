@@ -1,0 +1,22 @@
+.Header {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+}
+
+.Header ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.Header li {
+  display: inline;
+  margin-right: 10px;
+}
+
+.Header a {
+  color: white;
+  text-decoration: none;
+}
