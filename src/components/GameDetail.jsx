@@ -1,27 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom'; // import useParams
+import { GameContext } from '../GameContext';
 
 const GameDetail = () => {
   let { id } = useParams(); // Get the id from the URL parameters
   const [game, setGame] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')) || []);
-  const [completed, setCompleted] = useState(JSON.parse(localStorage.getItem('completed')) || []);
-
-  const addToFavorites = (game) => {
-    setFavorites([...favorites, game]);
-  };
-
-  const markAsCompleted = (game) => {
-    setCompleted([...completed, game]);
-  };
+  const { addToFavorites, markAsCompleted } = useContext(GameContext);
+  const favorites = useContext(GameContext).favorites; // Get the favorites from the context
+  const completed = useContext(GameContext).completed; // Get the completed from the context
 
   useEffect(() => {
     console.log(`Game ID: ${id}`); // Console log the game id
     axios.get(`https://api.rawg.io/api/games/${id}?key=${import.meta.env.VITE_APP_RAWG_API_KEY}`)
       .then(response => {
-        console.log('API response:', response.data); // Console log the API response
         setGame(response.data);
         setIsLoading(false);
       })
@@ -31,17 +24,16 @@ const GameDetail = () => {
       });
   }, [id]);
 
-  useEffect(() => {
-    console.log('Favorites updated:', favorites); // Console log when favorites are updated
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-  }, [favorites]);
+  const handleAddToFavorites = () => {
+    addToFavorites(game);
+    console.log('Add to favorites:', favorites);
+  };
 
-  useEffect(() => {
-    console.log('Completed games updated:', completed); // Console log when completed games are updated
-    localStorage.setItem('completed', JSON.stringify(completed));
-  }, [completed]);
+  const handleMarkAsCompleted = () => {
+    markAsCompleted(game);
+    console.log('Mark as completed:', completed);
+  };
 
-  console.log('Game data:', game); // Debug log for the game data
 
   if (isLoading) {
     return <p>Loading...</p>
@@ -57,8 +49,8 @@ const GameDetail = () => {
       <p>Developers: {game.developers.map(dev => dev.name).join(', ')}</p>
       <p>Genres: {game.genres.map(genre => genre.name).join(', ')}</p>
       <p>Platforms: {game.platforms.map(platform => platform.platform.name).join(', ')}</p>
-      <button onClick={() => addToFavorites(game)}>Add to Favorites</button>
-      <button onClick={() => markAsCompleted(game)}>Mark as Completed</button>
+      <button onClick={handleAddToFavorites}>Add to Favorites</button>
+      <button onClick={handleMarkAsCompleted}>Mark as Completed</button>
     </div>
   );
 };

@@ -1,24 +1,38 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { GameContext } from '../GameContext';
 
-function Profile({ favorites, completed }) {
+const Profile = () => {
+  const { favorites, completed } = useContext(GameContext);
+
+  console.log('Favorites:', favorites);
+  console.log('Completed:', completed);
+
   return (
     <div>
-      <h1>Profil</h1>
-      <h2>Favoris</h2>
-      <ul>
-        {favorites.map(game => (
-          <li key={game.id}>{game.name}</li>
-        ))}
-      </ul>
-      <h2>Jeux terminés</h2>
-      <ul>
-        {completed.map(game => (
-          <li key={game.id}>{game.name}</li>
-        ))}
-      </ul>
-      {completed.length >= 10 && <div>Badge pour avoir terminé 10 jeux!</div>}
+      <h2>My Profile</h2>
+      <h3>Favorite Games</h3>
+      {favorites.length > 0 ? (
+        <ul>
+          {favorites.map((game) => (
+            <li key={game.id}>{game.name}</li>
+          ))}
+        </ul>
+      ) : (
+        <p>No favorite games yet.</p>
+      )}
+
+      <h3>Completed Games</h3>
+      {completed.length > 0 ? (
+        <ul>
+          {completed.map((game) => (
+            <li key={game.id}>{game.name}</li>
+          ))}
+        </ul>
+      ) : (
+        <p>No completed games yet.</p>
+      )}
     </div>
   );
-}
+};
 
 export default Profile;

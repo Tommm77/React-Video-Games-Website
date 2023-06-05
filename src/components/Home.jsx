@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import GameCard from './GameCard';
 import '../styles/Home.css';
+import { GameContext } from '../GameContext';
 
 const Home = () => {
   const [games, setGames] = useState([]);
@@ -9,6 +10,9 @@ const Home = () => {
   const [sortOrder, setSortOrder] = useState('None');
   const [currentPage, setCurrentPage] = useState(1);
   const [fetchedGameIds, setFetchedGameIds] = useState(new Set());
+  const { favorites } = useContext(GameContext);
+
+  console.log('Favorites:', favorites);
 
   const fetchGames = (page) => {
     axios.get(`https://api.rawg.io/api/games?key=${import.meta.env.VITE_APP_RAWG_API_KEY}&page=${page}`)
