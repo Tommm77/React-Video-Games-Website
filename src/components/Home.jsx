@@ -82,7 +82,9 @@ const Home = () => {
         sortedGames.map(game => <GameCard key={game.id} game={game} />)
       )}
     </div>
+    <div className='more-container'>
       <button onClick={loadMoreGames}>Load more games</button>
+      </div>
     </div>
   );
 };

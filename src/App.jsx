@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Page404 from './components/Page404';
 import GameDetail from './components/GameDetail';
 import Profile from './components/Profile';
+import SearchPage from './components/SearchPage';
 import './index.css';
 
 export const GameContext = createContext();
@@ -31,6 +32,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/game/:id" element={<GameDetail />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path='/search' element={<SearchPage />} />
             <Route path="*" element={<Page404 />} />
           </Routes>
         </GameContext.Provider>
