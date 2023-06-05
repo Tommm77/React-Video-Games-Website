@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/GameCard.css';
+import { Link } from 'react-router-dom';
 
 const GameCard = ({ game }) => {
   return (
@@ -20,6 +21,7 @@ const GameCard = ({ game }) => {
           </span>
         ))}
       </div>
+      <Link to={`/game/${game.id}`}>More details</Link>
     </div>
   );
 };
