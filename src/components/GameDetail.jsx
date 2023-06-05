@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { GameContext } from '../GameContext';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../styles/GameDetail.css'; // Import the stylesheet
 
 const GameDetail = () => {
@@ -25,17 +27,19 @@ const GameDetail = () => {
   const handleAddToFavorites = () => {
     if (!favorites.some(favorite => favorite.id === game.id)) {
       addToFavorites(game);
+      toast.success('Game added to Favorites!');
     }
   };
 
   const handleMarkAsCompleted = () => {
     if (!completed.some(complete => complete.id === game.id)) {
       markAsCompleted(game);
+      toast.info('Game marked as Completed!');
     }
   };
 
   if (isLoading) {
-    return <p>Loading...</p>
+    return <p className='Loading'>Loading...</p>;
   }
 
   return (
@@ -54,6 +58,7 @@ const GameDetail = () => {
       <button onClick={handleMarkAsCompleted} className='game-btn'>
         {completed.some(complete => complete.id === game.id) ? 'Already Completed' : 'Mark as Completed'}
       </button>
+      <ToastContainer />
     </div>
   );
 };

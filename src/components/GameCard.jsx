@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/GameCard.css';
 import { Link } from 'react-router-dom';
 
-const GameCard = ({ game }) => {
+const GameCard = ({ game, isLoading }) => {
   return (
     <div className="GameCard">
       <div className="game-image">
@@ -22,9 +22,11 @@ const GameCard = ({ game }) => {
         )) : 'N/A'}
       </div>
       <Link to={`/game/${game.id}`}>More details</Link>
+      {isLoading ? (
+        <p className="loading">Loading...</p>
+      ) : null}
     </div>
   );
 };
-
 
 export default GameCard;

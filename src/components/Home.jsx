@@ -77,7 +77,7 @@ const Home = () => {
       </div>
     <div className='Home-Card'>
       {isLoading ? (
-        <p>Loading...</p>
+        <p className="loading">Loading...</p>
       ) : (
         sortedGames.map(game => <GameCard key={game.id} game={game} />)
       )}
