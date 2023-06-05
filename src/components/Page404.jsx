@@ -1,5 +1,10 @@
-import React from 'react';
+import React from "react";
 
+/**
+ * NotFound component to display a 404 error page.
+ *
+ * @returns {JSX.Element} - The rendered NotFound component.
+ */
 const NotFound = () => {
   return (
     <div>

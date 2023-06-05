@@ -1,10 +1,13 @@
-import React from 'react';
-import '../styles/Footer.css';
+import React from "react";
+import "../styles/Footer.css";
 
+/**
+ * Footer component to display the website footer.
+ */
 const Footer = () => {
   return (
-    <footer className='Footer'>
-      <p>© 2023 Mon Site de Jeux Vidéo</p>
+    <footer className="Footer">
+      <p>© 2023 My Video Game Site</p>
     </footer>
   );
 };
