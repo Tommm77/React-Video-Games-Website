@@ -2,7 +2,7 @@
 
 Ce projet est un site web de jeux vidéo développé en utilisant React. Il présente plusieurs fonctionnalités telles que la liste de jeux, les détails des jeux, la recherche de jeux, un système de filtre, et un profil utilisateur.
 
-Le site web est accessible à l'adresse suivante : [react-video-games-website-3o5lxe8iu-tommm77.vercel.app/](react-video-games-website-3o5lxe8iu-tommm77.vercel.app/)
+Le site web est accessible à l'adresse suivante : [react-video-games-website-3o5lxe8iu-tommm77.vercel.app/](https://react-video-games-website-oiginxyxs-tommm77.vercel.app)
 
 ## Fonctionnalités
 
