@@ -30,7 +30,7 @@ Le site web est accessible à l'adresse suivante : [react-video-games-website-3o
 
 ## Installation et Exécution du Projet
 
-1. Clonez le dépôt du projet : `git clone https://github.com/votre-utilisateur/react-video-games.git`
+1. Clonez le dépôt du projet : `git clone https://github.com/tommm77/react-video-games.git`
 2. Accédez au répertoire du projet : `cd react-video-games`
 3. Installez les dépendances : `npm install`
 4. Lancez l'application en mode développement : `npm start`
